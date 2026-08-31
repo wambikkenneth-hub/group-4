@@ -1,0 +1,4 @@
+ptistudents=readtable("C:\Users\AKABA JOSEPH\Desktop\AKABA JOSEPH\pti.xlsx")
+myName='Group 4'
+myNumber='4'
+outputFile=sprintf('%s %s ')

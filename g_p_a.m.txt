@@ -1,0 +1,46 @@
+% MATLAB Program to Calculate GPA and CGPA
+
+clc;
+clear;
+
+disp('===== GPA AND CGPA CALCULATOR =====');
+
+% Input number of semesters
+numSemesters = input('Enter the number of semesters: ');
+
+totalCreditUnits = 0;
+totalGradePoints = 0;
+
+for sem = 1:numSemesters
+    fprintf('\n----- Semester %d -----\n', sem);
+
+    % Input number of courses
+    numCourses = input('Enter the number of courses: ');
+
+    semesterCredit = 0;
+    semesterPoints = 0;
+
+    for course = 1:numCourses
+        fprintf('\nCourse %d\n', course);
+
+        credit = input('Enter credit units: ');
+        gradePoint = input('Enter grade point (0 - 5): ');
+
+        semesterCredit = semesterCredit + credit;
+        semesterPoints = semesterPoints + (credit * gradePoint);
+    end
+
+    % Calculate Semester GPA
+    GPA = semesterPoints / semesterCredit;
+    fprintf('Semester %d GPA = %.2f\n', sem, GPA);
+
+    % Update cumulative totals
+    totalCreditUnits = totalCreditUnits + semesterCredit;
+    totalGradePoints = totalGradePoints + semesterPoints;
+end
+
+% Calculate CGPA
+CGPA = totalGradePoints / totalCreditUnits;
+
+fprintf('\n===== FINAL RESULTS =====\n');
+fprintf('Cumulative GPA (CGPA) = %.2f\n', CGPA);
